@@ -14,12 +14,6 @@ use Symfony\Component\HttpKernel\KernelInterface;
  */
 class DatabaseSchemaHandler
 {
-    /** @var KernelInterface */
-    private $kernel;
-
-    /** @var Application */
-    private $cli;
-
     /** @var Connection */
     private $dbConnection;
 
@@ -34,11 +28,8 @@ class DatabaseSchemaHandler
         'oro_access_group'
     ];
 
-    public function __construct(KernelInterface $kernel, Connection $dbConnection)
+    public function __construct(Connection $dbConnection)
     {
-        $this->kernel = $kernel;
-        $this->cli = new Application($this->kernel);
-        $this->cli->setAutoExit(false);
         $this->dbConnection = $dbConnection;
     }
 
