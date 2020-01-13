@@ -9,6 +9,7 @@ use Akeneo\Connectivity\Connection\Domain\Settings\Model\Read\User;
 use Akeneo\Tool\Component\StorageUtils\Factory\SimpleFactoryInterface;
 use Akeneo\Tool\Component\StorageUtils\Saver\SaverInterface;
 use Akeneo\Tool\Component\StorageUtils\Updater\ObjectUpdaterInterface;
+use Akeneo\UserManagement\Component\Model\UserInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
@@ -47,6 +48,7 @@ class CreateUser implements CreateUserInterface
         $password = $this->generatePassword();
         $username = $this->generateUsername($username);
 
+        /** @var UserInterface */
         $user = $this->userFactory->create();
         $user->defineAsApiUser();
         $this->userUpdater->update(

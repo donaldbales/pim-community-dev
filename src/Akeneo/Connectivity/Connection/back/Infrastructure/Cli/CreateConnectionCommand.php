@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Akeneo\Connectivity\Connection\Infrastructure\Cli;
@@ -68,8 +69,13 @@ class CreateConnectionCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        /** @var string */
         $code = $input->getArgument('code');
+
+        /** @var string */
         $label = $input->getOption('label') ?? $code;
+
+        /** @var string */
         $flowType = $input->getOption('flow-type');
 
         try {

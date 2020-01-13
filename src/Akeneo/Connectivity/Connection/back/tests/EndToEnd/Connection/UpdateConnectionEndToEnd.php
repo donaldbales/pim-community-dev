@@ -35,7 +35,6 @@ class UpdateConnectionEndToEnd extends WebTestCase
             "user_group_id" => $connection->userGroupId()
         ];
 
-
         $this->authenticateAsAdmin();
         $this->client->request('POST', '/rest/connections/franklin', [], [], [], json_encode($data));
 

@@ -70,6 +70,7 @@ final class CreateConnectionHandler
         );
         $this->repository->create($connection);
 
+        /** @var ConnectionWithCredentials */
         $connectionDTO = $this->findAConnectionHandler->handle(
             new FindAConnectionQuery((string) $connection->code())
         );

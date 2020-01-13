@@ -93,7 +93,9 @@ class ConnectionController
             throw new AccessDeniedException();
         }
 
-        $data = json_decode($request->getContent(), true);
+        /** @var string */
+        $content = $request->getContent();
+        $data = json_decode($content, true);
         // TODO: Valid JSON format
 
         $command = new CreateConnectionCommand($data['code'], $data['label'], $data['flow_type']);
@@ -136,7 +138,9 @@ class ConnectionController
             throw new AccessDeniedException();
         }
 
-        $data = json_decode($request->getContent(), true);
+        /** @var string */
+        $content = $request->getContent();
+        $data = json_decode($content, true);
         // TODO: Valid JSON format
 
         $command = new UpdateConnectionCommand(
